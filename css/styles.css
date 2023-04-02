@@ -1,0 +1,307 @@
+body {
+    background-color: #66666611;
+    background-image: url('RW.svg');
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 80% auto;
+}
+
+:focus-visible {
+    outline: none;
+}
+
+button {
+    background-color: #eeeeee;
+    border: none;
+    border-radius: 5pt;
+    box-shadow: 0pt 1pt 3pt #66666666;
+    box-sizing: border-box;
+    color: #666666;
+    font-size: 1em;
+    height: 3em;
+    transition: all ease-in 0.15s;
+}
+
+button:hover,
+button:focus-visible {
+    background-color: #dddddd;
+}
+
+button:active {
+    transform: translateY(2pt);
+    background-color: #cccccc;
+}
+
+button.crypt_operation {
+    width: 40%;
+    margin: auto 3.3%;
+}
+
+button.reset {
+    width: 100%;
+}
+
+button#upload_button,
+button#download_output {
+    width: 90%;
+}
+
+button.selected {
+    background-color: #ffffff;
+    border-radius: 5pt;
+    color: #333333;
+}
+
+button.selected:hover,
+button.selected:focus-visible,
+button.selected:active {
+    background-color: inherit;
+}
+
+button.input_type {
+    border: none;
+    border-radius: 5pt;
+    box-shadow: none;
+    font-size: 18pt;
+    font-weight: 700;
+    max-width: 50%;
+    float: left;
+    height: 72pt;
+    width: 50%;
+}
+
+button.input_type:active {
+    transform: none;
+}
+
+button.loading {
+    background-color: #ff6666;
+    color: #ffffff;
+}
+
+button.loading:hover,
+button.loading:focus-visible {
+    background-color: #dd5555;
+}
+
+button.loading:active {
+    transform: none;
+    background-color: #cc3333;
+}
+
+button.reading {
+    transition: all ease-in 0.33s;
+}
+
+button.reading:hover,
+button.reading:focus-visible,
+button.reading:active {
+    background-color: inherit;
+}
+
+button.ready {
+    background-color: #66cc66;
+    color: #ffffff;
+}
+
+button.ready:hover,
+button.ready:focus-visible {
+    background-color: #44aa44;
+}
+
+button.ready:active {
+    background-color: #339933;
+}
+
+div {
+    border-radius: 5pt;
+    box-shadow: 0pt 1pt 4pt #66666633;
+    display: block;
+    padding: 12pt;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    transition: all ease-in 0.25s;
+}
+
+div#pad {
+    height: 2em;
+    margin-bottom: 2em;
+}
+
+div#root_div {
+    background-color: #ffffff99;
+    border-radius: 10pt;
+    margin: 16pt auto;
+    text-align: center;
+    min-width: 60%;
+    width: 500pt;
+    max-width: 90%;
+}
+
+#header {
+    background-color: #cc99ff;
+    box-shadow: 0pt 2pt 5pt #66339966;
+    border: none;
+    border-radius: 0;
+    color: #ffffff;
+    display: block;
+    position: fixed;
+    float: inline-start;
+    margin: 0pt;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 1em 0em;
+    z-index: 100;
+}
+
+#footer {
+    background-color: #cc99ff;
+    box-shadow: 0pt -2pt 5pt #66339966;
+    border: none;
+    border-radius: 0;
+    color: #ffffff;
+    display: block;
+    position: fixed;
+    float: inline-end;
+    text-align: center;
+    margin: 0pt;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 0.3em 0em;
+    z-index: 100;
+}
+
+div.left,
+form {
+    text-align: left;
+}
+
+div.no_padding {
+    padding: 0pt;
+}
+
+div.no_shadow {
+    box-shadow: none;
+}
+
+div.divider {
+    height: 1pt;
+    background-color: #cccccc99;
+    padding: 0pt;
+    margin-top: 1.5em;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: -0.5em;
+    box-shadow: none;
+}
+
+h1 {
+    font-family: "Noto Serif CJK SC", "思源宋体", "宋体";
+    font-size: 30pt;
+    font-weight: 900;
+    margin-top: 0em;
+    margin-bottom: 12pt;
+}
+
+h2,
+h3 {
+    text-align: start;
+    text-indent: 2em;
+}
+
+input {
+    transition: all ease-in 0.15s;
+}
+
+input#file_chooser {
+    height: 2em;
+    margin: 10pt;
+}
+
+input#password {
+    border: 1pt solid #cccccc;
+    border-radius: 5pt;
+    font-family: inherit;
+    font-size: 1em;
+    margin: 0 auto;
+    padding: 5pt 10pt;
+    width: 90%;
+}
+
+#head_text {
+    text-align: start;
+    text-indent: 0em;
+    font-size: 1.2em;
+    font-weight: 700;
+    width: 100%;
+    margin: 0pt;
+    margin-inline-start: 2em;
+}
+
+#foot_text {
+    align-self: center;
+    text-align: center;
+    text-indent: 0em;
+    font-size: 0.8em;
+    margin: 0pt;
+    margin-inline-start: 2em;
+}
+
+select {
+    background-color: #ffffff;
+    border: 1pt solid #cccccc;
+    border-radius: 5pt;
+    font-size: 1em;
+    padding: 4pt 4pt;
+    transition: all ease-in 0.25s;
+    width: 100%;
+}
+
+select:hover,
+input#password:hover {
+    border: 1pt solid #9966ff;
+    box-shadow: 0pt 0pt 3pt #9966ff66;
+}
+
+select:focus-visible,
+input#password:focus-visible {
+    box-shadow: 0pt 0pt 5pt #9966ff66, inset 0pt 0pt 2pt #66666633;
+    border: 1pt solid #9966ff;
+}
+
+table {
+    width: 90%;
+    margin: auto;
+}
+
+textarea {
+    resize: none;
+    border: 1pt solid #cccccc;
+    border-radius: 5pt;
+    font-family: inherit;
+    font-size: 1em;
+    margin: 12pt;
+    padding: 5pt 10pt;
+    transition: all ease-in 0.25s;
+}
+
+textarea:hover {
+    border: 1pt solid #9966ff;
+    box-shadow: 0pt 0pt 6pt #9966ff66;
+}
+
+textarea:focus-visible {
+    box-shadow: 0pt 0pt 10pt #9966ff66, inset 0pt 0pt 3pt #66666633;
+    border: 1pt solid #9966ff;
+}
+
+textarea.areas {
+    margin: 0 auto;
+    align-self: center;
+    height: 10em;
+    width: 90%;
+}

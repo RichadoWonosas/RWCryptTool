@@ -1,12 +1,26 @@
 "use-strict";
 
-import { RWSE2_OPER } from "./RWSE2.js";
-import { RWSE2_MODE, RWSE2_OPT } from "./RWSE2Token.js";
 import { RWSH, RWSH_TYPE } from "./RWSH.js";
 
 // Initialise
 
 // Constants
+const RWSE2_OPER = {
+    OPER_ENCRYPT: 0,
+    OPER_DECRYPT: 1
+};
+
+const RWSE2_MODE = {
+    CTR: 0,
+    OFB: 1
+};
+
+const RWSE2_OPT = {
+    OPT_256: 0,
+    OPT_384: 1,
+    OPT_512: 2
+};
+
 const COMMAND_CODE = {
     ENCRYPT_FILE: 0,
     DECRYPT_FILE: 1,
@@ -161,6 +175,8 @@ if (window.Worker) {
                 changeButtonStatus(false);
                 break;
             case RESPONSE_CODE.ERROR:
+                alert(`Error: ${ev.data.data}`)
+                changeButtonStatus(false);
         }
     }
 } else {
@@ -286,7 +302,7 @@ function startCrypt(operation) {
 
         changeButtonStatus(true);
 
-        result.data.token = element_password.innerText;
+        result.data.token = element_password.value;
         switch (choice_crypt_method.selectedIndex) {
             default:
             case 0:
@@ -313,8 +329,9 @@ function startCrypt(operation) {
         } else {
             result.code = (operation == RWSE2_OPER.OPER_ENCRYPT) ? COMMAND_CODE.ENCRYPT_FILE : COMMAND_CODE.DECRYPT_FILE;
             result.data.file_name = element_file_chooser.files[0].name;
-            result.data.bin = new Uint8Array(reader.result);
-            transfer.push(reader.result);
+            result.data.bin = new Uint8Array(reader.result.byteLength);
+            result.data.bin.set(new Uint8Array(reader.result));
+            transfer.push(result.data.bin.buffer);
         }
 
         worker.postMessage(result, transfer);

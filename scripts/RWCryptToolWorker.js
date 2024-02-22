@@ -2,8 +2,9 @@
 
 import { base64decode, base64encode } from "./Base64.js";
 import { RWCFCreate, RWCFRead } from "./RWCF.js";
-import { RWSE2Token } from "./RWSE2Token.js";
 import { unicodeToUtf8, utf8ToUnicode } from "./UTF8Coding.js";
+import { RWSE2Token as newToken } from "./RWSE2Token.js";
+import { RWSE2Token as legacyToken } from "./legacy/RWSE2Token.js";
 
 const COMMAND_CODE = {
     ENCRYPT_FILE: 0,
@@ -23,6 +24,9 @@ const RESPONSE_CODE = {
     STRING_DECRYPTED: 7,
     ERROR: 8
 };
+
+// check wasm availability
+var RWSE2Token = (typeof WebAssembly == 'undefined') ? legacyToken : newToken;
 
 onmessage = (ev) => {
     try {

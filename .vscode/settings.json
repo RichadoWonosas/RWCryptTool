@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.m": "matlab",
+        "msort": "cpp",
+        "vector": "cpp",
+        "regex": "cpp",
+        "inf": "json",
+        "*.mcdata": "json",
+        "emscripten.h": "c"
+    }
+}

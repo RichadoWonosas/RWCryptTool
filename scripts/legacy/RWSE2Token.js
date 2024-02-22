@@ -1,21 +1,10 @@
 "use-strict";
 
-import { RWSH, RWSH_TYPE } from "./RWSH.js";
-import { unicodeToUtf8 } from "./UTF8Coding.js";
-import { CustomError } from "./Errors.js";
-import { Module } from "./RWSE4WASM.js";
+import { CRYPT_MODE as RWSE2_MODE, RWSE2_OPT, RWSE2_OFB, RWSE2_CTR } from "./RWSE2Mode.js";
+import { RWSH, RWSH_TYPE } from "../RWSH.js";
+import { unicodeToUtf8 } from "../UTF8Coding.js";
+import { CustomError } from "../Errors.js";
 export { RWSE2_OPT, RWSE2_MODE, RWSE2Token };
-
-const RWSE2_MODE = {
-    CTR: 0,
-    OFB: 1
-};
-
-const RWSE2_OPT = {
-    OPT_256: 0,
-    OPT_384: 1,
-    OPT_512: 2
-};
 
 function RWSE2Token(content, token, salt, crypt_type, mode, update_prog = (prog) => { }) {
     if (!content instanceof Uint8Array) {
@@ -54,39 +43,13 @@ function RWSE2Token(content, token, salt, crypt_type, mode, update_prog = (prog)
     let key = raw_key.subarray(0, -32);
     let iv = raw_key.subarray(-32);
 
-    RWSE2Mode(content, key, iv, mode, crypt_type, update_prog);
-}
-
-function RWSE2Mode(content, key, iv, mode, crypt_type, update_prog) {
-    let update_fn = Module.addFunction(update_prog, 'vf');
-    let content_len = content.length;
-    let content_pos = Module._malloc(content_len);
-    let key_pos = Module._malloc(key.length);
-    let iv_pos = Module._malloc(iv.length);
-
-    let hkey = Module.HEAPU8.subarray(key_pos, key_pos + key.length);
-    let hiv = Module.HEAPU8.subarray(iv_pos, iv_pos + iv.length);
-    let hcontent = Module.HEAPU8.subarray(content_pos, content_pos + content_len);
-
-    hcontent.set(content);
-    hkey.set(key);
-    hiv.set(iv);
-
-    // use wasm content
     switch (mode) {
         default:
         case RWSE2_MODE.CTR:
-            Module._RWSE2_CTR(content_pos, content_len, key_pos, iv_pos, crypt_type, update_fn);
+            RWSE2_CTR(content, key, iv, crypt_type, update_prog);
             break;
         case RWSE2_MODE.OFB:
-            Module._RWSE2_OFB(content_pos, content_len, key_pos, iv_pos, crypt_type, update_fn);
+            RWSE2_OFB(content, key, iv, crypt_type, update_prog);
             break;
     }
-
-    content.set(hcontent);
-
-    Module._free(iv_pos);
-    Module._free(key_pos);
-    Module._free(content_pos);
-    Module.removeFunction(update_fn);
 }

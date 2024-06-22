@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 
 import { RWSH, RWSH_TYPE } from "./RWSH.js";
 
@@ -223,7 +223,7 @@ function readChangedFiles() {
     element_download_output.classList.add("loading");
     element_download_output.innerText = "无输出文件";
 
-    if (element_file_chooser.files.length == 0) {
+    if (element_file_chooser.files.length === 0) {
         element_oper_encrypt.disabled = true;
         element_oper_decrypt.disabled = true;
     } else {
@@ -278,7 +278,7 @@ function refresh() {
             break;
     }
     element_show_type.innerText = "RWSE2_" + length + "_" + mode + "_RWXH" + length;
-    if (input_type != 0) {
+    if (input_type !== 0) {
         readChangedFiles();
     }
 }
@@ -323,11 +323,11 @@ function startCrypt(operation) {
                 break;
         }
 
-        if (input_type == MESSAGE_TYPE.STRING_MESSAGE) {
-            result.code = (operation == RWSE2_OPER.OPER_ENCRYPT) ? COMMAND_CODE.ENCRYPT_STRING : COMMAND_CODE.DECRYPT_STRING;
+        if (input_type === MESSAGE_TYPE.STRING_MESSAGE) {
+            result.code = (operation === RWSE2_OPER.OPER_ENCRYPT) ? COMMAND_CODE.ENCRYPT_STRING : COMMAND_CODE.DECRYPT_STRING;
             result.data.message = element_input_text.value;
         } else {
-            result.code = (operation == RWSE2_OPER.OPER_ENCRYPT) ? COMMAND_CODE.ENCRYPT_FILE : COMMAND_CODE.DECRYPT_FILE;
+            result.code = (operation === RWSE2_OPER.OPER_ENCRYPT) ? COMMAND_CODE.ENCRYPT_FILE : COMMAND_CODE.DECRYPT_FILE;
             result.data.file_name = element_file_chooser.files[0].name;
             result.data.bin = new Uint8Array(reader.result.byteLength);
             result.data.bin.set(new Uint8Array(reader.result));
@@ -343,7 +343,7 @@ function startCrypt(operation) {
 function changeViewByInputMode() {
     let elements = document.getElementsByClassName("input_type");
     for (let i = 0; i < elements.length; i++) {
-        if (elements.item(i).value != input_type) {
+        if (elements.item(i).value !== input_type) {
             elements.item(i).classList.remove("selected");
         } else {
             elements.item(i).classList.add("selected");
@@ -375,7 +375,7 @@ function changeViewByInputMode() {
             element_input_text.style.opacity = 0.0;
             element_output_text.opacity = 0.0;
 
-            if (element_file_chooser.files.length == 0) {
+            if (element_file_chooser.files.length === 0) {
                 element_oper_encrypt.disabled = true;
                 element_oper_decrypt.disabled = true;
                 element_download_output.classList.remove("ready");

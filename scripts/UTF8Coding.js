@@ -7,8 +7,8 @@ function unicodeToUtf8(code) {
     return new Uint8Array(
         encodeURIComponent(code)
             .split(new RegExp("(%[0-9A-Fa-f]{2}|\\S)"))
-            .filter(value => value != "")
-            .map(value => (value.charAt(0) == "%") ? parseInt(value.substring(1), 16) : value.charCodeAt(0))
+            .filter(value => value !== "")
+            .map(value => (value.charAt(0) === "%") ? parseInt(value.substring(1), 16) : value.charCodeAt(0))
     );
 }
 

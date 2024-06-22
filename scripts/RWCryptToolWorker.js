@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 
 import { base64decode, base64encode } from "./Base64.js";
 import { RWCFCreate, RWCFRead } from "./RWCF.js";

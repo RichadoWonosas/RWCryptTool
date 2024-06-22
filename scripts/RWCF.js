@@ -1,6 +1,6 @@
-"use-strict";
+"use strict";
 
-import { RWSE2Token, RWSE2_MODE, RWSE2_OPT } from "./RWSE2Token.js";
+import { RWSE2Token, RWSE2_OPT } from "./RWSE2Token.js";
 import { CustomError } from "./Errors.js";
 import { utf8ToUnicode, unicodeToUtf8 } from "./UTF8Coding.js";
 import { RWSH, RWSH_TYPE } from "./RWSH.js";
@@ -88,7 +88,7 @@ function RWCFRead(bin, token, update_prog = (prog) => { }) {
     }
 
     for (let i = 0; i < 4; i++) {
-        if (RWCF_HEADER[i] != bin[i]) {
+        if (RWCF_HEADER[i] !== bin[i]) {
             throw new CustomError(-7, "Malformed file");
         }
     }
@@ -124,7 +124,7 @@ function RWCFRead(bin, token, update_prog = (prog) => { }) {
         digest();
 
     for (let i = 0; i < hash_size; i++) {
-        if (hash[i] != record_hash[i]) {
+        if (hash[i] !== record_hash[i]) {
             throw new CustomError(-8, "Incorrect Token");
         }
     }

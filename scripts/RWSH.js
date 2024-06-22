@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 
 export { RWSH, RWSH_TYPE };
 
@@ -127,7 +127,7 @@ function sigma(state) {
 function kappa(state) {
     let temp = state[0];
     state[0] = state[10];
-    for (let i = 10; i != 0; i = K_box[i]) {
+    for (let i = 10; i !== 0; i = K_box[i]) {
         state[i] = state[K_box[i]];
     }
     state[17] = temp;
@@ -216,7 +216,7 @@ class RWSH {
             this.#state2[this.#pos] ^= data[i];
 
             this.#pos++;
-            if (this.#pos == this.#sec_param) {
+            if (this.#pos === this.#sec_param) {
                 this.#state32 = RWSH_Single(this.#state32);
                 this.#pos -= this.#sec_param;
             }
@@ -245,7 +245,7 @@ class RWSH {
         for (let i = 0; i < byte_length; i++) {
             result[i] = this.#state2[this.#pos];
             this.#pos++;
-            if (this.#pos == this.#sec_param) {
+            if (this.#pos === this.#sec_param) {
                 this.#state32 = RWSH_Single(this.#state32);
                 this.#pos -= this.#sec_param;
             }

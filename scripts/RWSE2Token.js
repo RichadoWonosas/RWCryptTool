@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 
 import { RWSH, RWSH_TYPE } from "./RWSH.js";
 import { unicodeToUtf8 } from "./UTF8Coding.js";

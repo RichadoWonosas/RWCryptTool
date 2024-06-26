@@ -1,36 +1,79 @@
-body {
-    background-color: #66666611;
-    background-image: url('RW.svg');
-    background-attachment: fixed;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 80% auto;
-}
-
 :focus-visible {
     outline: none;
 }
 
+.light {
+    --div-bgcolor: transparent;
+    --root-bgcolor: #ffffff99;
+    --page-bgcolor: #ffffff;
+    --button-bgcolor: #eeeeee;
+    --button-act-bgcolor: #cccccc;
+    --inb-sel-bgcolor: #ffffff;
+    --button-hover-bgcolor: #dddddd;
+    --div-shadow-color: #66666633;
+    --button-shadow-color: #66666666;
+    --ready-bgcolor: #66cc66;
+    --ready-hcolor: #44aa44;
+    --ready-acolor: #339933;
+    --loading-bgcolor: #ff6666;
+    --loading-hcolor: #dd5555;
+    --loading-acolor: #cc3333;
+    --topping-color: #ffffff;
+}
+
+.dark {
+    --div-bgcolor: transparent;
+    --root-bgcolor: #11111199;
+    --button-bgcolor: #333333;
+    --button-act-bgcolor: #222222;
+    --inb-sel-bgcolor: #22222299;
+    --button-hover-bgcolor: #272727;
+    --div-shadow-color: #ffffff33;
+    --button-shadow-color: #eeeeee66;
+    --ready-bgcolor: #339933;
+    --ready-hcolor: #117711;
+    --ready-acolor: #006600;
+    --loading-bgcolor: #993333;
+    --loading-hcolor: #771111;
+    --loading-acolor: #660000;
+    --topping-color: #cccccc;
+}
+
+.tp {
+    background-color:transparent;
+}
+
+div#root_div {
+    background-color: var(--root-bgcolor);
+    min-width: 60%;
+    max-width: 96%;
+}
+
+div#root_div p {
+    text-align: center;
+    text-indent: 0;
+}
+
 button {
-    background-color: #eeeeee;
+    background-color: var(--button-bgcolor);
     border: none;
     border-radius: 5pt;
-    box-shadow: 0pt 1pt 3pt #66666666;
+    box-shadow: 0 1pt 3pt var(--button-shadow-color);
     box-sizing: border-box;
-    color: #666666;
     font-size: 1em;
     height: 3em;
     transition: all ease-in 0.15s;
 }
 
-button:hover,
-button:focus-visible {
-    background-color: #dddddd;
+button:active,
+button:active:hover {
+    transform: translateY(2pt);
+    background-color: var(--button-act-bgcolor);
 }
 
-button:active {
-    transform: translateY(2pt);
-    background-color: #cccccc;
+button:hover,
+button:focus-visible {
+    background-color: var(--button-hover-bgcolor);
 }
 
 button.crypt_operation {
@@ -48,46 +91,49 @@ button#download_output {
 }
 
 button.selected {
-    background-color: #ffffff;
+    background-color: var(--inb-sel-bgcolor);
     border-radius: 5pt;
-    color: #333333;
 }
 
 button.selected:hover,
 button.selected:focus-visible,
 button.selected:active {
-    background-color: inherit;
+    background-color: transparent;
 }
 
-button.input_type {
+.input_type {
     border: none;
     border-radius: 5pt;
     box-shadow: none;
-    font-size: 18pt;
-    font-weight: 700;
     max-width: 50%;
     float: left;
     height: 72pt;
     width: 50%;
 }
 
-button.input_type:active {
-    transform: none;
+#root_div button.input_type {
+    font-size: calc(var(--font-size, 12pt) * 1.5);
+    font-weight: 700;
+}
+
+#root_div select {
+    background-color: var(--art-bgcolor);
+    border: 1pt solid var(--edge-color);
 }
 
 button.loading {
-    background-color: #ff6666;
-    color: #ffffff;
+    background-color: var(--loading-bgcolor);
+    color: var(--topping-color);
 }
 
 button.loading:hover,
 button.loading:focus-visible {
-    background-color: #dd5555;
+    background-color: var(--loading-hcolor);
 }
 
 button.loading:active {
     transform: none;
-    background-color: #cc3333;
+    background-color: var(--loading-acolor);
 }
 
 button.reading {
@@ -101,78 +147,31 @@ button.reading:active {
 }
 
 button.ready {
-    background-color: #66cc66;
-    color: #ffffff;
+    background-color: var(--ready-bgcolor);
+    color: var(--topping-color);
 }
 
 button.ready:hover,
 button.ready:focus-visible {
-    background-color: #44aa44;
+    background-color: var(--ready-hcolor);
 }
 
 button.ready:active {
-    background-color: #339933;
+    background-color: var(--ready-acolor);
 }
 
 div {
-    border-radius: 5pt;
-    box-shadow: 0pt 1pt 4pt #66666633;
-    display: block;
-    padding: 12pt;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    box-shadow: 0 1pt 4pt var(--div-shadow-color);
     text-align: center;
-    transition: all ease-in 0.25s;
 }
 
-div#pad {
+div.pad {
     height: 2em;
     margin-bottom: 2em;
 }
 
-div#root_div {
-    background-color: #ffffff99;
-    border-radius: 10pt;
-    margin: 16pt auto;
-    text-align: center;
-    min-width: 60%;
-    width: 500pt;
-    max-width: 90%;
-}
-
-#header {
-    background-color: #cc99ff;
-    box-shadow: 0pt 2pt 5pt #66339966;
-    border: none;
-    border-radius: 0;
-    color: #ffffff;
-    display: block;
-    position: fixed;
-    float: inline-start;
-    margin: 0pt;
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding: 1em 0em;
-    z-index: 100;
-}
-
-#footer {
-    background-color: #cc99ff;
-    box-shadow: 0pt -2pt 5pt #66339966;
-    border: none;
-    border-radius: 0;
-    color: #ffffff;
-    display: block;
-    position: fixed;
-    float: inline-end;
-    text-align: center;
-    margin: 0pt;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    padding: 0.3em 0em;
-    z-index: 100;
+*[hidden] {
+    display: none;
 }
 
 div.left,
@@ -181,36 +180,11 @@ form {
 }
 
 div.no_padding {
-    padding: 0pt;
+    padding: 0;
 }
 
 div.no_shadow {
     box-shadow: none;
-}
-
-div.divider {
-    height: 1pt;
-    background-color: #cccccc99;
-    padding: 0pt;
-    margin-top: 1.5em;
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-bottom: -0.5em;
-    box-shadow: none;
-}
-
-h1 {
-    font-family: "Noto Serif CJK SC", "思源宋体", "宋体";
-    font-size: 30pt;
-    font-weight: 900;
-    margin-top: 0em;
-    margin-bottom: 12pt;
-}
-
-h2,
-h3 {
-    text-align: start;
-    text-indent: 2em;
 }
 
 input {
@@ -223,7 +197,8 @@ input#file_chooser {
 }
 
 input#password {
-    border: 1pt solid #cccccc;
+    background-color: var(--art-bgcolor);
+    border: 1pt solid var(--edge-color);
     border-radius: 5pt;
     font-family: inherit;
     font-size: 1em;
@@ -232,44 +207,15 @@ input#password {
     width: 90%;
 }
 
-#head_text {
-    text-align: start;
-    text-indent: 0em;
-    font-size: 1.2em;
-    font-weight: 700;
-    width: 100%;
-    margin: 0pt;
-    margin-inline-start: 2em;
-}
-
-#foot_text {
-    align-self: center;
-    text-align: center;
-    text-indent: 0em;
-    font-size: 0.8em;
-    margin: 0pt;
-    margin-inline-start: 2em;
-}
-
-select {
-    background-color: #ffffff;
-    border: 1pt solid #cccccc;
-    border-radius: 5pt;
-    font-size: 1em;
-    padding: 4pt 4pt;
-    transition: all ease-in 0.25s;
-    width: 100%;
-}
-
 select:hover,
 input#password:hover {
     border: 1pt solid #9966ff;
-    box-shadow: 0pt 0pt 3pt #9966ff66;
+    box-shadow: 0 0 3pt #9966ff66;
 }
 
 select:focus-visible,
 input#password:focus-visible {
-    box-shadow: 0pt 0pt 5pt #9966ff66, inset 0pt 0pt 2pt #66666633;
+    box-shadow: 0 0 5pt #9966ff66, inset 0 0 2pt #66666633;
     border: 1pt solid #9966ff;
 }
 
@@ -278,24 +224,13 @@ table {
     margin: auto;
 }
 
-textarea {
-    resize: none;
-    border: 1pt solid #cccccc;
-    border-radius: 5pt;
-    font-family: inherit;
-    font-size: 1em;
-    margin: 12pt;
-    padding: 5pt 10pt;
-    transition: all ease-in 0.25s;
-}
-
 textarea:hover {
     border: 1pt solid #9966ff;
-    box-shadow: 0pt 0pt 6pt #9966ff66;
+    box-shadow: 0 0 6pt #9966ff66;
 }
 
 textarea:focus-visible {
-    box-shadow: 0pt 0pt 10pt #9966ff66, inset 0pt 0pt 3pt #66666633;
+    box-shadow: 0 0 10pt #9966ff66, inset 0 0 3pt #66666633;
     border: 1pt solid #9966ff;
 }
 

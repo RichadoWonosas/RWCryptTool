@@ -1,0 +1,205 @@
+{
+  "title": {
+    "en-US": "RW's Crypt Tool",
+    "zh-CN": "RW的加密套组",
+    "zh-TW": "RW的加密套組",
+    "lzh-CN": "南理茶渡之加密秘寶",
+    "ja-JP": "RWの暗号化キット"
+  },
+  "string_crypt": {
+    "en-US": "String Encrypt",
+    "zh-CN": "文本加解密",
+    "zh-TW": "文本加解密",
+    "lzh-CN": "文本加解密",
+    "ja-JP": "文字暗号化"
+  },
+  "file_crypt": {
+    "en-US": "File Encrypt",
+    "zh-CN": "文件加解密",
+    "zh-TW": "文檔加解密",
+    "lzh-CN": "案卷加解密",
+    "ja-JP": "ファイル暗号化"
+  },
+  "title_input": {
+    "en-US": "Input",
+    "zh-CN": "输入",
+    "zh-TW": "輸入",
+    "lzh-CN": "傳入",
+    "ja-JP": "入力"
+  },
+  "title_content": {
+    "en-US": "Content",
+    "zh-CN": "内容",
+    "zh-TW": "內容",
+    "lzh-CN": "內容",
+    "ja-JP": "内容"
+  },
+  "upload_button": {
+    "en-US": "Choose file...",
+    "zh-CN": "选择文件...",
+    "zh-TW": "選擇文檔...",
+    "lzh-CN": "載案卷...",
+    "ja-JP": "ファイルを選択..."
+  },
+  "loading": {
+    "en-US": "Loading...",
+    "zh-CN": "读取中...",
+    "zh-TW": "讀取中...",
+    "lzh-CN": "方載案卷...",
+    "ja-JP": "ロード中..."
+  },
+  "no_file_chosen": {
+    "en-US": "No file chosen",
+    "zh-CN": "未选择文件",
+    "zh-TW": "未選擇文檔",
+    "lzh-CN": "未載案卷",
+    "ja-JP": "ファイル未選択"
+  },
+  "input_text": {
+    "en-US": "Enter text to be encrypted/decrypted...",
+    "zh-CN": "输入需要加/解密的文本...",
+    "zh-TW": "鍵入需要加/解密的文本...",
+    "lzh-CN": "置需加/解密之文...",
+    "ja-JP": "暗号化・復号化したい文字を入力..."
+  },
+  "title_password": {
+    "en-US": "Password",
+    "zh-CN": "加密口令",
+    "zh-TW": "加密口令",
+    "lzh-CN": "加密口令",
+    "ja-JP": "暗証番号"
+  },
+  "password": {
+    "en-US": "Enter password here...",
+    "zh-CN": "输入加密口令...",
+    "zh-TW": "鍵入加密口令...",
+    "lzh-CN": "錄加密口令...",
+    "ja-JP": "暗証番号を入力..."
+  },
+  "title_crypt_type": {
+    "en-US": "Encryption type: ",
+    "zh-CN": "加密类型：",
+    "zh-TW": "加密類型：",
+    "lzh-CN": "加密之類：",
+    "ja-JP": "暗号化タイプ："
+  },
+  "title_param": {
+    "en-US": "Parameter Settings",
+    "zh-CN": "参数设置",
+    "zh-TW": "參數設置",
+    "lzh-CN": "參數置設",
+    "ja-JP": "パラメータ設定"
+  },
+  "title_sec": {
+    "en-US": "Security Parameter",
+    "zh-CN": "安全参数",
+    "zh-TW": "安全參數",
+    "lzh-CN": "安全參數",
+    "ja-JP": "セキュリティパラメータ"
+  },
+  "opt_256": {
+    "en-US": "256 Bits",
+    "zh-CN": "256位",
+    "zh-TW": "256位",
+    "lzh-CN": "256位",
+    "ja-JP": "256ビット"
+  },
+  "opt_512": {
+    "en-US": "512 Bits",
+    "zh-CN": "512位",
+    "zh-TW": "512位",
+    "lzh-CN": "512位",
+    "ja-JP": "512ビット"
+  },
+  "title_mode": {
+    "en-US": "Encryption mode",
+    "zh-CN": "加密模式",
+    "zh-TW": "加密模式",
+    "lzh-CN": "加密模式",
+    "ja-JP": "暗号化モード"
+  },
+  "element_reset": {
+    "en-US": "Reset to default",
+    "zh-CN": "恢复默认设置",
+    "zh-TW": "恢復默認設置",
+    "lzh-CN": "復設如初",
+    "ja-JP": "デフォルトに巻き戻る"
+  },
+  "oper_encrypt": {
+    "en-US": "Encrypt",
+    "zh-CN": "加密",
+    "zh-TW": "加密",
+    "lzh-CN": "加密",
+    "ja-JP": "暗号化"
+  },
+  "oper_decrypt": {
+    "en-US": "Decrypt",
+    "zh-CN": "解密",
+    "zh-TW": "解密",
+    "lzh-CN": "解密",
+    "ja-JP": "復号化"
+  },
+  "title_output": {
+    "en-US": "Output",
+    "zh-CN": "输出",
+    "zh-TW": "輸出",
+    "lzh-CN": "產物",
+    "ja-JP": "出力"
+  },
+  "output_text": {
+    "en-US": "The result outputs here...",
+    "zh-CN": "此处为输出结果...",
+    "zh-TW": "此處為輸出結果...",
+    "lzh-CN": "產物列乎此...",
+    "ja-JP": "出力結果はここに..."
+  },
+  "download_output": {
+    "en-US": "No output file",
+    "zh-CN": "无输出文件",
+    "zh-TW": "無輸出文檔",
+    "lzh-CN": "尚無產物",
+    "ja-JP": "出力ファイルなし"
+  },
+  "warning": {
+    "en-US": "Warning: this browser does not support this application!",
+    "zh-CN": "警告：您的浏览器不支持本应用！",
+    "zh-TW": "警告：您的瀏覽器不支持本應用！",
+    "lzh-CN": "告：該覽器不可載本！",
+    "ja-JP": "エラー：このアプリはこのブラウザーに動作できません！"
+  },
+  "expand": {
+    "en-US": "Expand",
+    "zh-CN": "展开",
+    "zh-TW": "展開",
+    "lzh-CN": "展",
+    "ja-JP": "広げる"
+  },
+  "collapse": {
+    "en-US": "Collapse",
+    "zh-CN": "收起",
+    "zh-TW": "收起",
+    "lzh-CN": "合",
+    "ja-JP": "折り畳む"
+  },
+  "save_file": {
+    "en-US": "Save file...",
+    "zh-CN": "保存文件...",
+    "zh-TW": "存儲文檔...",
+    "lzh-CN": "存案卷...",
+    "ja-JP": "ファイル保存..."
+  },
+  "encrypting": {
+    "en-US": "Encrypting...",
+    "zh-CN": "加密中...",
+    "zh-TW": "加密中...",
+    "lzh-CN": "方加密...",
+    "ja-JP": "暗号化中..."
+  },
+  "decrypting": {
+    "en-US": "Decrypting...",
+    "zh-CN": "解密中...",
+    "zh-TW": "解密中...",
+    "lzh-CN": "方解密...",
+    "ja-JP": "復号化中..."
+  }
+}

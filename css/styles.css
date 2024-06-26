@@ -116,6 +116,13 @@ button.selected:active {
     font-weight: 700;
 }
 
+#root_div p,
+#root_div h1,
+#root_div h2,
+#root_div h3 {
+    padding: 0;
+}
+
 #root_div select {
     background-color: var(--art-bgcolor);
     border: 1pt solid var(--edge-color);

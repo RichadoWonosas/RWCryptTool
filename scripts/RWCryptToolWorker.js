@@ -26,7 +26,7 @@ const RESPONSE_CODE = {
 };
 
 // check wasm availability
-var RWSE2Token = (typeof WebAssembly == 'undefined') ? legacyToken : newToken;
+const RWSE2Token = (typeof WebAssembly === 'undefined') ? legacyToken : newToken;
 
 onmessage = (ev) => {
     try {

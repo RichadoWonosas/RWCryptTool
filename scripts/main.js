@@ -1,9 +1,8 @@
 "use strict";
 
 import {RWSH, RWSH_TYPE} from "./RWSH.js";
-import {helper} from "https://richadowonosas.github.io/scripts/helper.js";
-
-// Initialise
+import {helper} from "/scripts/helper.js";
+import {unicodeToUtf8} from "./UTF8Coding.js";
 
 // Constants
 const RWSE2_OPER = {
@@ -294,7 +293,7 @@ function startCrypt(operation) {
             result.code = (operation === RWSE2_OPER.OPER_ENCRYPT) ? COMMAND_CODE.ENCRYPT_FILE : COMMAND_CODE.DECRYPT_FILE;
             result.data.file_name = element_file_chooser.files[0].name;
             result.data.bin = new Uint8Array(reader.result.byteLength);
-            result.data.bin.set(new Uint8Array(reader.result));
+            result.data.bin.set(new Uint8Array((reader.result instanceof ArrayBuffer) ? reader.result : unicodeToUtf8(reader.result)));
             transfer.push(result.data.bin.buffer);
         }
 
@@ -425,9 +424,25 @@ const initElements = () => {
     }
 }
 
+const registerServiceWorker = async () => {
+    if ("serviceWorker" in navigator) {
+        try {
+            const registration = await navigator.serviceWorker.register("../sw.js");
+            if (registration.installing)
+                console.debug("Service worker installing");
+            else if (registration.waiting)
+                console.debug("Service worker installed");
+            else if (registration.active)
+                console.debug("Service worker active");
+        } catch (e) {
+            console.warn(`Registration failed with ${e}`);
+        }
+    }
+};
+
 const initWorker = () => {
 // Set worker
-    if (window.Worker) {
+    if ("Worker" in window) {
         worker = new Worker("./scripts/RWCryptToolWorker.js", {
             type: "module"
         });
@@ -494,51 +509,51 @@ const initWorker = () => {
 const initSettings = () => {
     changeInputMode(input_type);
     changeSetting();
-    helper.addEventListener("size", "root", (res) => {
-        if (res.size === 'small') {
+    helper.addEventListener("size", "root", ({size}) => {
+        if (size === 'small') {
             root_div.classList.add('small');
         } else {
             root_div.classList.remove('small');
         }
-        if (res.size === 'medium') {
+        if (size === 'medium') {
             root_div.classList.add('medium');
         } else {
             root_div.classList.remove('medium');
         }
-        if (res.size === 'large') {
+        if (size === 'large') {
             root_div.classList.add('large');
         } else {
             root_div.classList.remove('large');
         }
     });
-    helper.addEventListener("light", "scheme", (res) => {
-        params.cur = res.light ? "light" : "dark";
+    helper.addEventListener("light", "scheme", ({light}) => {
+        params.cur = light ? "light" : "dark";
     });
 };
 
 const initLocale = () => {
-    helper.importTranslation(document.URL.split("/").slice(0, -1).join("/") + "/resources/localized-strings.json");
-    helper.addEventListener("locale", "title", (res) => document.getElementById("title_doc").innerText = document.title = res.str);
+    helper.importTranslation(window.location.pathname.split("/").slice(0, -1).join("/") + "/resources/localized-strings.json");
+    helper.addEventListener("locale", "title", ({str}) => document.getElementById("title_doc").innerText = document.title = str);
     for (let entry in strings)
-        helper.addEventListener("locale", entry, (res) => strings[entry] = res.str);
-    helper.addEventListener("locale", "string_crypt", (res) => button_string_crypt.innerText = res.str);
-    helper.addEventListener("locale", "file_crypt", (res) => button_file_crypt.innerText = res.str);
-    helper.addEventListener("locale", "title_input", (res) => document.getElementById("title_input").innerText = res.str);
-    helper.addEventListener("locale", "title_content", (res) => document.getElementById("title_content").innerText = res.str);
-    helper.addEventListener("locale", "input_text", (res) => element_input_text.placeholder = res.str);
-    helper.addEventListener("locale", "title_password", (res) => document.getElementById("title_password").innerText = res.str);
-    helper.addEventListener("locale", "password", (res) => document.getElementById("password").placeholder = res.str);
-    helper.addEventListener("locale", "title_crypt_type", (res) => document.getElementById("title_crypt_type").innerText = res.str);
-    helper.addEventListener("locale", "title_param", (res) => document.getElementById("title_param").innerText = res.str);
-    helper.addEventListener("locale", "title_sec", (res) => document.getElementById("title_sec").innerText = res.str);
-    helper.addEventListener("locale", "opt_256", (res) => document.getElementById("opt_256").innerText = res.str);
-    helper.addEventListener("locale", "opt_512", (res) => document.getElementById("opt_512").innerText = res.str);
-    helper.addEventListener("locale", "title_mode", (res) => document.getElementById("title_mode").innerText = res.str);
-    helper.addEventListener("locale", "element_reset", (res) => button_reset.innerText = res.str);
-    helper.addEventListener("locale", "oper_encrypt", (res) => element_oper_encrypt.innerText = res.str);
-    helper.addEventListener("locale", "oper_decrypt", (res) => element_oper_decrypt.innerText = res.str);
-    helper.addEventListener("locale", "title_output", (res) => document.getElementById("title_output").innerText = res.str);
-    helper.addEventListener("locale", "output_text", (res) => element_output_text.placeholder = res.str);
+        helper.addEventListener("locale", entry, ({str}) => strings[entry] = str);
+    helper.addEventListener("locale", "string_crypt", ({str}) => button_string_crypt.innerText = str);
+    helper.addEventListener("locale", "file_crypt", ({str}) => button_file_crypt.innerText = str);
+    helper.addEventListener("locale", "title_input", ({str}) => document.getElementById("title_input").innerText = str);
+    helper.addEventListener("locale", "title_content", ({str}) => document.getElementById("title_content").innerText = str);
+    helper.addEventListener("locale", "input_text", ({str}) => element_input_text.placeholder = str);
+    helper.addEventListener("locale", "title_password", ({str}) => document.getElementById("title_password").innerText = str);
+    helper.addEventListener("locale", "password", ({str}) => document.getElementById("password").placeholder = str);
+    helper.addEventListener("locale", "title_crypt_type", ({str}) => document.getElementById("title_crypt_type").innerText = str);
+    helper.addEventListener("locale", "title_param", ({str}) => document.getElementById("title_param").innerText = str);
+    helper.addEventListener("locale", "title_sec", ({str}) => document.getElementById("title_sec").innerText = str);
+    helper.addEventListener("locale", "opt_256", ({str}) => document.getElementById("opt_256").innerText = str);
+    helper.addEventListener("locale", "opt_512", ({str}) => document.getElementById("opt_512").innerText = str);
+    helper.addEventListener("locale", "title_mode", ({str}) => document.getElementById("title_mode").innerText = str);
+    helper.addEventListener("locale", "element_reset", ({str}) => button_reset.innerText = str);
+    helper.addEventListener("locale", "oper_encrypt", ({str}) => element_oper_encrypt.innerText = str);
+    helper.addEventListener("locale", "oper_decrypt", ({str}) => element_oper_decrypt.innerText = str);
+    helper.addEventListener("locale", "title_output", ({str}) => document.getElementById("title_output").innerText = str);
+    helper.addEventListener("locale", "output_text", ({str}) => element_output_text.placeholder = str);
 
     helper.addEventListener("localeChanged", "sum", () => {
         element_config_show.innerText = element_param_config.hidden ? strings.expand : strings.collapse;
@@ -568,6 +583,7 @@ const initLocale = () => {
 }
 
 const initialize = () => {
+    registerServiceWorker().then();
     initElements();
     initWorker();
     initSettings();
@@ -575,6 +591,8 @@ const initialize = () => {
     helper.loadGlobalConfig();
     helper.drawer.appendToDocument();
 };
+
+// Initialise
 
 initialize();
 

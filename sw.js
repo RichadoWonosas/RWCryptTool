@@ -1,4 +1,4 @@
-const RW_SW_VERSION = "RW_CRYPT_SW_v1";
+const RW_SW_VERSION = "RW_CRYPT_SW_v2";
 
 const addResourcesToCache = async (resources) => {
     const cache = await caches.open(RW_SW_VERSION);

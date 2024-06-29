@@ -45,8 +45,9 @@
 
 div#root_div {
     background-color: var(--root-bgcolor);
+    box-sizing: border-box;
     min-width: 60%;
-    max-width: 96%;
+    max-width: 100%;
 }
 
 div#root_div p {

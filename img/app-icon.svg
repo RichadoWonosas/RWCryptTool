@@ -2,7 +2,7 @@
      stroke-width="0" stroke-linecap="round" stroke-linejoin="round">
     <g id="key">
         <path id="key_shape" stroke-width="0" fill="#eee" fill-rule="evenodd" d="
-        M 320,168
+        M 336,186
         l 48,-96 18,-6 12,36 -9,18 -18,6 -3,6 3,9 -9,6 -3,6 3,6 -3,6 3,9 -6,12
         a 48,48 0,1,1 -36,-18 z
         m 18,9 m -36,72
@@ -13,14 +13,14 @@
             <use href="#key_shape"/>
         </mask>
         <path stroke-width="0" fill="#ccc" mask="url(#key_mask)" d="
-        M 408,40
+        M 424,50
         l -128,256 48,24 88,-176 z
         "/>
     </g>
     <g id="lock">
         <g id="lock_shape">
             <path stroke-width="0" fill="#eee" d="
-            M 128,144
+            M 144,162
             v -32
             a 52,52 0,0,1 104,0
             v 32
@@ -29,19 +29,19 @@
             a 32,32 0,0,0 -72,0
             v 32 z
             "/>
-            <rect stroke-width="0" fill="#fda" x="108" y="144" width="144" height="108" rx="16"/>
+            <rect stroke-width="0" fill="#fda" x="124" y="162" width="144" height="108" rx="16"/>
         </g>
         <mask id="lock_mask">
             <use href="#lock_shape"/>
         </mask>
         <g mask="url(#lock_mask)">
-            <rect stroke-width="0" fill="#ccc" x="180" y="60" width="72" height="84"/>
-            <rect stroke-width="0" fill="#eb8" x="180" y="144" width="72" height="108"/>
+            <rect stroke-width="0" fill="#ccc" x="196" y="78" width="72" height="84"/>
+            <rect stroke-width="0" fill="#eb8" x="196" y="162" width="72" height="108"/>
         </g>
     </g>
     <g id="box" opacity="1">
         <path fill="#dbf" d="
-        M 96,256
+        M 112,274
         v 144
         a 16,16 0,0,0 16,16
         h 256
@@ -49,14 +49,14 @@
         v -144 z
         "/>
         <path fill="#edf" d="
-        M 112,256
+        M 128,274
         v 144
         a 16,16 0,0,0 16,16
         h 160
         v -160 z
         "/>
         <path fill="#b9e" d="
-        M 96,256
+        M 112,274
         l -32,-60
         a 18,18 0,0,1 16,-24
         h 152
@@ -64,7 +64,7 @@
         l 40,76
         "/>
         <path fill="#dbf" d="
-        M 112,256
+        M 128,274
         l -32,-60
         a 18,18 0,0,1 16,-24
         h 136
@@ -72,7 +72,7 @@
         l 40,76
         "/>
         <path fill="#a8e" d="
-        M 384,256
+        M 400,274
         l 32,-60
         a 18,18 0,0,0 -16,-24
         h -56
@@ -81,7 +81,7 @@
         "/>
     </g>
     <path stroke-width="8" stroke="#76c" d="
-        M 188,344
+        M 204,362
         l 0,-60.48
         m 10.56,15.84
         l -10.56,-15.84 -10.56,15.84

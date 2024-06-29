@@ -1,0 +1,15 @@
+{
+  "name": "RW's Crypt Tool",
+  "short_name": "RWCryptTool",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#76c",
+  "description": "A pure front-end encryption tool using encryption algorithm RWSE2 and secure hash algorithm RWSH.",
+  "icons": [
+    {
+      "src": "img/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,11 +1,12 @@
 # RWCryptTool
 
-A simple pure front-end encryptor using RWSE2 and RWSH
+A pure front-end encryption tool using encryption algorithm RWSE2 and secure hash algorithm RWSH.
 
-## Solved Issues
+## Features
 
-- [x] "It is slow!" - RWSE2 is based on 64-bit operations, but JavaScript does not support this well. WebAssembly is used to deal with this issue.
+- [x] **WebAssembly acceleration** - Encryption and decryption involves massive computing power; At the same time the encryption algorithm RWSE2 uses 64-bit operations yet JavaScript does not support this well. WebAssembly is used to deal with this issue.
+- [x] **Progressive Web App (PWA) Support** - This tool can be installed as a progressive web app. Feel free to install this app if the browser suggests you to do that!
 
 ## Future Features
 
-- [ ] I found Progressive Web App (PWA) somehow interesting to use for this tool. Now learning to add this functionality to the project.
+No future features currently.

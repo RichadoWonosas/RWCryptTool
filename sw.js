@@ -1,4 +1,4 @@
-const RW_SW_VERSION = "RW_CRYPT_SW_v0";
+const RW_SW_VERSION = "RW_CRYPT_SW_v1";
 
 const addResourcesToCache = async (resources) => {
     const cache = await caches.open(RW_SW_VERSION);
@@ -92,7 +92,9 @@ self.addEventListener("install", event => {
             "../img/icons/light/yoha.svg",
             // crypt tool
             "./index.html",
+            "./manifest.json",
             "./css/styles.css",
+            "./img/app-icon.svg",
             "./resources/localized-strings.json",
             "./scripts/main.js",
             "./scripts/RWCryptToolWorker.js",
